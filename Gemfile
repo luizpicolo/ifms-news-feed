@@ -4,7 +4,6 @@ ruby '3.1.2'
 
 gem 'builder'
 gem 'sinatra'
-gem 'sass'
 gem 'nokogiri'
 gem 'httparty'
 
