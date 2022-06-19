@@ -15,7 +15,7 @@ get '/feed' do
         link: item.css('[class="tileHeadline"] a').first["href"], 
         description: item.css('[class="description"]').text, 
         image: core.css('[class="tileImage"] img').first["src"], 
-        pubDate: format_date(date_or_time(0), date_or_time(1))
+        pubDate: format_date(date_or_time(item, 0), date_or_time(item, 1))
       }
     end
     
@@ -26,7 +26,7 @@ def content
   Nokogiri::HTML(HTTParty.get('https://ifms.edu.br/noticias').body)
 end
 
-def date_or_time(position)
+def date_or_time(item, position)
   item.css('[class=summary-view-icon]')[position].text
 end
 
